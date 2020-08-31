@@ -16,45 +16,21 @@
 // - it should move to the leaderboard
 // - it should move to the end game screen
 // - it should move to the start game screen
-const initialState = {
-  initialized: false,
-  currentGame: {
-    currentRound: 0,
-    currentQuestion: 0,
-    audienceSize: 0,
-    players: [
+
+import reducer, { initialState} from '../src/redux/reducer'
+
+// TEST 1: start a new game
+describe('start a new game reducer', () => {
+  it('should return the initial state', () => {
+    expect(reducer(initialState, {})).toMatchSnapshot()
+  })
+
+  it('should handle INIT_GAME request', () => {
+    expect(
+      reducer(initialState,
       {
-        name: "",
-        vip: true,
-        totalScore: 0,
-      },
-    ],
-    rounds: [
-      {
-        id: 1,
-        type: "",
-        title: "Round One",
-        scoreMultiplier: 1,
-        questions: [
-          {
-            type: "",
-            content: "",
-            answers: [
-              {
-                name: "",
-                answer: "",
-                votes: [
-                  {
-                    name: "",
-                  },
-                ],
-                audienceVotes: 0,
-                score: 0,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-};
+        type: 'INIT_GAME'
+      })
+    ).toMatchSnapshot()
+  })
+})

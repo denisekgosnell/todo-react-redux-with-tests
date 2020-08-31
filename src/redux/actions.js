@@ -1,20 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { INIT_GAME } from "./actionTypes";
 
-let nextTodoId = 0;
-export const addTodo = (content) => ({
-  type: ADD_TODO,
+let nextGameId = 0;
+export const startGame = () => ({
+  type: INIT_GAME,
   payload: {
-    id: ++nextTodoId,
-    content
-  }
-});
-
-export const toggleTodo = (id) => ({
-  type: TOGGLE_TODO,
-  payload: { id }
-});
-
-export const setFilter = (filter) => ({
-  type: SET_FILTER,
-  payload: { filter }
+    id: ++nextGameId
+   }
 });
